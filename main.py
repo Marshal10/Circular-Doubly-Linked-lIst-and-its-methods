@@ -55,12 +55,29 @@ class CircularDoublyLinkedList:
             temp_node.next=new_node
         self.length += 1
         return "Successfully added a node"
+    
+    def traversal(self):
+        current=self.head
+        while current:
+            print(current.value)
+            if current == self.tail:
+                break
+            current=current.next
             
-            
+    def reverseTraversal(self):
+        current=self.tail
+        while current:
+            print(current.value)
+            if current==self.head:
+                break
+            current=current.prev
             
     
 cd_linked_list=CircularDoublyLinkedList()
 cd_linked_list.createDLL(10)
 print([node.value for node in cd_linked_list])
 cd_linked_list.insert(1,40)
+cd_linked_list.insert(0,70)
 print([node.value for node in cd_linked_list])
+cd_linked_list.traversal()
+cd_linked_list.reverseTraversal()
