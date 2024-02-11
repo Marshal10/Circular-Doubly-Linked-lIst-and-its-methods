@@ -72,6 +72,20 @@ class CircularDoublyLinkedList:
                 break
             current=current.prev
             
+    def search(self,target):
+        if self.head is None:
+            return None
+        current=self.head
+        index=0
+        while current:
+            if current.value==target:
+                return index
+            if current==self.tail:
+                break
+            index+=1
+            current=current.next
+        return -1
+            
     
 cd_linked_list=CircularDoublyLinkedList()
 cd_linked_list.createDLL(10)
@@ -79,5 +93,6 @@ print([node.value for node in cd_linked_list])
 cd_linked_list.insert(1,40)
 cd_linked_list.insert(0,70)
 print([node.value for node in cd_linked_list])
-cd_linked_list.traversal()
-cd_linked_list.reverseTraversal()
+# cd_linked_list.traversal()
+# cd_linked_list.reverseTraversal()
+print(cd_linked_list.search(100))
