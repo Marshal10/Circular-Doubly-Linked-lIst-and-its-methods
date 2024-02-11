@@ -117,6 +117,15 @@ class CircularDoublyLinkedList:
             temp.next=popped_node.next
             popped_node.next.prev=temp
         self.length-=1
+        
+    def delete_all(self):
+        self.tail.next=None
+        temp=self.head
+        while temp:
+            temp.prev=None
+            temp=temp.next
+        self.head=None
+        self.tail=None
             
     
 cd_linked_list=CircularDoublyLinkedList()
@@ -130,7 +139,8 @@ print([node.value for node in cd_linked_list])
 # cd_linked_list.traversal()
 # cd_linked_list.reverseTraversal()
 # print(cd_linked_list.search(100))
-cd_linked_list.remove(2)
-print([node.value for node in cd_linked_list])
-cd_linked_list.remove(2)
+# cd_linked_list.remove(2)
+# print([node.value for node in cd_linked_list])
+# cd_linked_list.remove(2)
+cd_linked_list.delete_all()
 print([node.value for node in cd_linked_list])
